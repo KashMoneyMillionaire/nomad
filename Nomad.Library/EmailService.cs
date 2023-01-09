@@ -11,18 +11,18 @@ namespace Nomad.Library;
 public class EmailService
 {
     public static string FileBase { get; set; }
-    public static string Template => Path.Combine(FileBase, "template");
 
+    private static string Template => Path.Combine(FileBase, "template");
     private static readonly Lazy<string> _index = new(() => File.ReadAllText($"{Template}/index.html"));
     private static readonly Lazy<string> _day = new(() => File.ReadAllText($"{Template}/_day.html"));
     private static readonly Lazy<string> _photo = new(() => File.ReadAllText($"{Template}/_photo.html"));
 
-    private readonly List<string> _emailAddresses;
+    private readonly List<EmailAddress> _emailAddresses;
     private readonly EmailClient _emailClient;
 
     public EmailService(EmailClient emailClient, List<string> emailAddresses)
     {
-        _emailAddresses = emailAddresses;
+        _emailAddresses = emailAddresses.Select(a => new EmailAddress(a)).ToList();
         _emailClient = emailClient;
     }
 
@@ -34,8 +34,7 @@ public class EmailService
         {
             Html = emailBody
         };
-        var recipients = new EmailRecipients(new[] { new EmailAddress("kashleec@gmail.com") },
-                                             bcc: _emailAddresses.Select(a => new EmailAddress(a)).ToList());
+        var recipients = new EmailRecipients(_emailAddresses);
         var emailMessage = new EmailMessage("digest@nomad.kash.money", content, recipients);
 
         await _emailClient.SendAsync(emailMessage);
