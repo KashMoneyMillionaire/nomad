@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomad.Functions", "Nomad.Functions\Nomad.Functions.csproj", "{08B3F657-E013-447C-B027-019F326ED545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomad.Console", "Nomad.Console\Nomad.Console.csproj", "{11F08090-579A-4FAE-BFA4-40E5E483486A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nomad.Library", "Nomad.Library\Nomad.Library.csproj", "{5D689661-CAFF-4A98-AE02-B4CD2395E23C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08B3F657-E013-447C-B027-019F326ED545}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08B3F657-E013-447C-B027-019F326ED545}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08B3F657-E013-447C-B027-019F326ED545}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08B3F657-E013-447C-B027-019F326ED545}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11F08090-579A-4FAE-BFA4-40E5E483486A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11F08090-579A-4FAE-BFA4-40E5E483486A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11F08090-579A-4FAE-BFA4-40E5E483486A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11F08090-579A-4FAE-BFA4-40E5E483486A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D689661-CAFF-4A98-AE02-B4CD2395E23C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D689661-CAFF-4A98-AE02-B4CD2395E23C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D689661-CAFF-4A98-AE02-B4CD2395E23C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D689661-CAFF-4A98-AE02-B4CD2395E23C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
