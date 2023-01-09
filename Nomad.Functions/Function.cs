@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Azure;
@@ -10,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using Nomad.Library;
 
 namespace Nomad.Functions
@@ -33,7 +31,7 @@ namespace Nomad.Functions
         }
         
         [FunctionName("WeeklyDigest")]
-        public static async Task WeeklyDigest([TimerTrigger("0 8 * * MON")] TimerInfo myTimer, ILogger log,
+        public static async Task WeeklyDigest([TimerTrigger("0 14 * * MON")] TimerInfo myTimer, ILogger log,
                                               ExecutionContext context)
         {
             var cfg = GetConfig();
