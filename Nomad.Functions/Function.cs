@@ -26,7 +26,7 @@ namespace Nomad.Functions
                 AlbumLink = Environment.GetEnvironmentVariable("ALBUM_LINK"),
                 EmailKey = Environment.GetEnvironmentVariable("EMAIL_KEY"),
                 EmailDomain = Environment.GetEnvironmentVariable("EMAIL_DOMAIN"),
-                EmailAddresses = Environment.GetEnvironmentVariable("EMAILS").Split(";").ToList()
+                EmailAddresses = Environment.GetEnvironmentVariable("EMAILS").Split(';', '|').ToList()
             };
         }
         
