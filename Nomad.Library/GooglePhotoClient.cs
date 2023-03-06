@@ -56,7 +56,7 @@ namespace Nomad.Library
         {
             try
             {
-                string? nextPageToken = null;
+                string? pageToken = null;
                 List<(string Id, DateTimeOffset CreationTime)> photoIds = new();
                 DateTimeOffset? newSync = null;
 
@@ -68,17 +68,17 @@ namespace Nomad.Library
                                          {
                                              pageSize = 100,
                                              albumId,
-                                             // nextPageToken
+                                             pageToken
                                          })
                                         .ReceiveJson<Response>();
 
-                    nextPageToken = response.NextPageToken;
+                    pageToken = response.NextPageToken;
 
                     photoIds.AddRange(response.MediaItems.Where(i => i.MediaMetadata.CreationTime > after)
                                               .Select(item => (item.Id, item.MediaMetadata.CreationTime)));
                     var latestFound = response.MediaItems.Max(i => i.MediaMetadata.CreationTime);
                     newSync = newSync is null || latestFound > newSync ? latestFound : newSync;
-                } while (nextPageToken != null);
+                } while (pageToken != null);
 
                 return (photoIds, newSync);
             }
